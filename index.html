@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PROFIT is a specialized optimizer for incremental fine-tuning of converged deep models.">
+  <title>PROFIT: A Specialized Optimizer for Deep Fine Tuning</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,600|Noto+Sans:400,700|Castoro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    :root {
+      --accent: #2d62ff;
+      --accent-dark: #1d3aa9;
+      --background-light: #f5f7ff;
+      --cruise-orange: #ff4f18;
+      --cruise-orange-dark: #d93e10;
+    }
+
+    body {
+      font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #1f1f1f;
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(45, 98, 255, 0.12), rgba(45, 98, 255, 0));
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+    }
+
+    .publication-title {
+      font-family: "Google Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .publication-authors span {
+      display: inline-block;
+      margin: 0 0.35rem;
+    }
+
+    .publication-links {
+      margin-top: 1.75rem;
+    }
+
+    .publication-links .button {
+      border-radius: 999px;
+      padding-left: 1.4em;
+      padding-right: 1.4em;
+      font-weight: 600;
+      background-color: var(--cruise-orange);
+      border: none;
+    }
+
+    .publication-links .button:hover {
+      background-color: var(--cruise-orange-dark);
+    }
+
+    .organization {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .organization-logos {
+      margin-top: 1.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .organization-logos img {
+      max-height: 56px;
+      width: auto;
+      filter: drop-shadow(0 6px 18px rgba(13, 37, 87, 0.12));
+    }
+
+    .publication-links .button.is-light {
+      background-color: rgba(255, 79, 24, 0.12);
+      color: var(--cruise-orange);
+      box-shadow: inset 0 0 0 1px rgba(255, 79, 24, 0.35);
+    }
+
+    .publication-links .button.is-light:hover {
+      background-color: rgba(255, 79, 24, 0.22);
+    }
+
+    .section.is-light {
+      background-color: var(--background-light);
+    }
+
+    .abstract-content {
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .teaser-card {
+      background-color: #ffffff;
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 18px 36px rgba(13, 37, 87, 0.12);
+      border: 1px solid rgba(31, 42, 90, 0.08);
+    }
+
+    .teaser-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(13, 37, 87, 0.08);
+    }
+
+    .teaser-caption {
+      margin-top: 1rem;
+      color: #3b4253;
+      font-size: 0.95rem;
+    }
+
+    .bibtex-card {
+      background-color: #ffffff;
+      color: #202030;
+      border-radius: 14px;
+      padding: 2.25rem;
+      box-shadow: 0 18px 36px rgba(13, 37, 87, 0.12);
+      border: 1px solid rgba(31, 42, 90, 0.08);
+    }
+
+    .bibtex-card pre {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .bibtex-card code {
+      font-family: "Fira Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      color: inherit;
+    }
+
+    .bibtex-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .copy-button {
+      background-color: rgba(45, 98, 255, 0.2);
+      color: #f5f7ff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.45rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .copy-button:hover {
+      background-color: rgba(45, 98, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .copy-button:active {
+      transform: translateY(0);
+    }
+
+    footer {
+      background-color: #0e101a;
+      color: #d8dcff;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #d8dcff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              PROFIT: A Specialized Optimizer for Deep Fine Tuning
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span>Anirudh S Chakravarthy</span>
+              <span>Shuai Kyle Zheng</span>
+              <span>Xin Huang</span>
+              <span>Sachithra Hemachandra</span>
+              <span>Xiao Zhang</span>
+              <span>Yuning Chai</span>
+              <span>Zhao Chen</span>
+            </div>
+            <div class="organization">
+              GM Cruise LLC
+            </div>
+            <div class="organization-logos">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/General_Motors_%282021%29.svg" alt="General Motors logo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Cruise_logo.svg" alt="Cruise logo">
+            </div>
+            <div class="publication-links">
+              <a class="button is-primary is-medium" href="https://arxiv.org/abs/2412.01930" target="_blank" rel="noopener">
+                arXiv
+              </a>
+              <a class="button is-light is-medium" href="#BibTeX">
+                BibTeX
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="abstract-content content">
+            <p>
+              The fine-tuning of pre-trained models has become ubiquitous in generative AI, computer vision, and robotics. Although much attention has been paid to improving the efficiency of fine-tuning model, there has been less scholarship around fine-tuning specifically for improved model performance. To remedy this gap, we present PROFIT, one of the first optimizers designed to incrementally fine-tune converged models on new tasks and/or datasets. Unlike traditional optimizers such as SGD or Adam, which make minimal assumptions due to random initializations, PROFIT takes the properties of a converged model into account explicitly to regularize the optimization process. Employing a temporal gradient-orthogonalization process, PROFIT outperforms fine-tuning methods in various tasks, from image classification to multimodal language model training to large-scale motion prediction. Moreover, PROFIT is encapsulated as a modular optimizer, which makes it easy to integrate directly into any training pipeline with minimal engineering effort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">What is the PROFIT?</h2>
+          <div class="teaser-card">
+            <img src="./static/images/profit_teaser.png" alt="Comparison between a standard optimizer and the PROFIT optimizer">
+            <p class="teaser-caption has-text-centered">PROFIT regularizes updates by orthogonalizing and translating gradients from a converged model, improving adaptation to new tasks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">BibTeX</h2>
+          <div class="bibtex-card">
+            <div class="bibtex-actions">
+              <button class="copy-button" id="copy-bibtex">Copy</button>
+            </div>
+            <pre><code id="bibtex-entry">@inproceedings{chakravarthy2025profit,
+  author    = {Anirudh S Chakravarthy and Shuai Kyle Zheng and Xin Huang and Sachithra Hemachandra and Xiao Zhang and Yuning Chai and Zhao Chen},
+  title     = {{PROFIT: A Specialized Optimizer for Deep Fine Tuning}},
+  booktitle = {NeurIPS},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2412.01930}
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <p>&copy; 2025 GM Cruise LLC. Licensed under CC BY-SA 4.0.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function copyBibtex() {
+      const trigger = document.getElementById('copy-bibtex');
+      const entry = document.getElementById('bibtex-entry');
+      if (!trigger || !entry) return;
+
+      trigger.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(entry.textContent.trim());
+          trigger.textContent = 'Copied!';
+          setTimeout(() => trigger.textContent = 'Copy', 1800);
+        } catch (err) {
+          trigger.textContent = 'Press ⌘C';
+          setTimeout(() => trigger.textContent = 'Copy', 1800);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
