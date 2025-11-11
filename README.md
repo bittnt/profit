@@ -1,6 +1,6 @@
 # PROFIT
 
-This is the repository for the [Profit website](https://profit.github.io).
+This is the repository for the [Profit website](https://bittnt.github.io/profit/).
 
 If you find Profit useful, please cite:
 ```
