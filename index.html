@@ -258,6 +258,9 @@
               <a class="button is-primary is-medium" href="https://arxiv.org/abs/2412.01930" target="_blank" rel="noopener">
                 arXiv
               </a>
+              <a class="button is-primary is-medium" href="https://neurips.cc/virtual/2025/poster/117387" target="_blank" rel="noopener">
+                NeurIPS 2025 Poster
+              </a>
               <a class="button is-light is-medium" href="#BibTeX">
                 BibTeX
               </a>
@@ -345,6 +348,67 @@
     </div>
   </section>
 
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">More accurate and confidence motion prediction in autonomous driving</h2>
+          <div class="teaser-card">
+            <img src="./static/images/womd_vis.png" alt="Motion prediction results comparing PROFIT and baseline fine-tuning">
+            <p class="teaser-caption has-text-centered">
+              In Waymo Open dataset, PROFIT produces more confident predictions that align better with the ground truth compared to the fine-tuning either only-head or full-model fine-tuning methods.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">A warmup makes PROFIT effective when dealing with the data distribution shift.</h2>
+          <div class="teaser-card">
+            <img src="./static/images/vitab_1k_profit.png" alt="PROFIT warmup closing performance gaps across task types">
+            <p class="teaser-caption has-text-centered">
+              The VTAB-1K benchmark, where ImageNet pre-training and fine-tuning are no longer proximal. A warmup fine-tuning with the standard optimizer Adam brings it "closer" to the target distribution, we can apply the PROFIT to achieve better performance on the VITAB-1k dataset.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Fine-tuning Vision-Language Models (VLMs) for autonomous driving</h2>
+          <div class="teaser-card">
+            <img src="./static/images/drivelm_dlwf_teaser.png" alt="DriveLM comparison between baseline fine-tuning and PROFIT fine-tuning">
+            <p class="teaser-caption has-text-centered">
+              On this particular example from the DriveLM dataset, PROFIT improves model's ability to perceive the traffic light and black sedan in the scene, while the baseline (fine-tuned with AdamW) does not detect the traffic light and hallucinates the presence of a white truck.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Conclusions</h2>
+          <p>
+            As Machine Learning shifts to fine-tuning, our tools must evolve too. PROFIT is a critical step towards a new class of optimizers designed for adapting the most powerful foundational models. Future works are prioritize to implement PROFIT memory efficient to handle large foundational models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -366,7 +430,23 @@
       </div>
     </div>
   </section>
-
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Poster Overview</h2>
+          <div class="teaser-card">
+            <a href="./static/images/PROFIT_poster_thumbnail.png" target="_blank" rel="noopener">
+              <img src="./static/images/PROFIT_poster_thumbnail.png" alt="Poster summarizing the PROFIT optimizer research">
+            </a>
+            <p class="teaser-caption has-text-centered">
+              Present at NeurIPS 2025 poster session, San Diego Convention Center, Exhibit Hall C,D,E #905, Wednesday, December 3rd, 2025. 11 a.m. PST — 2 p.m. PST. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
