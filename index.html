@@ -119,6 +119,51 @@
       font-size: 0.95rem;
     }
 
+    .performance-card {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .performance-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 0.75rem;
+    }
+
+    .performance-table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    .performance-table th,
+    .performance-table td {
+      padding: 0.4rem 1.1rem;
+    }
+
+    .performance-table th {
+      text-align: right;
+      color: #3b4253;
+      font-weight: 600;
+    }
+
+    .performance-table td {
+      text-align: left;
+      font-weight: 600;
+      color: #1f1f1f;
+    }
+
+    .performance-highlight {
+      color: var(--cruise-orange);
+    }
+
+    .performance-note {
+      margin-top: 0.85rem;
+      color: #3b4253;
+      font-size: 0.95rem;
+    }
+
     .bibtex-card {
       background-color: #ffffff;
       color: #202030;
@@ -252,6 +297,54 @@
     </div>
   </section>
 
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">PROFIT shows better at preserving the prior knowledge.</h2>
+          <div class="teaser-card">
+            <img src="./static/images/toy_image.png" alt="Toy example comparing ground truth, standard fine-tuning, and PROFIT fine-tuning results">
+            <div class="performance-card">
+              <div class="performance-heading">Performance on Original Data</div>
+              <table class="performance-table">
+                <tbody>
+                  <tr>
+                    <th>Full Fine-Tuning Error</th>
+                    <td>0.705</td>
+                  </tr>
+                  <tr>
+                    <th>PROFIT Error</th>
+                    <td><span class="performance-highlight">0.046</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="performance-note">
+                PROFIT reduces error on original data by ~15x compared to full fine-tuning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Better at Learning on new tasks, less forgetting of old ones.</h2>
+          <div class="teaser-card">
+            <img src="./static/images/cifar_exp.png" alt="Relative performance improvement over SGD baseline for CIFAR experiments">
+            <p class="teaser-caption has-text-centered">
+              This is an image classification experiment.<br>
+              Pre-training on CIFAR10 and fine-tuning on CIFAR100 distributions are proximal (sampled from Tiny Images) datasets. PROFIT achieves the best balance. It outperforms the specialized optimizers on the new tasks, while reduces forgetting on the old ones. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -269,6 +362,19 @@
   url       = {https://arxiv.org/abs/2412.01930}
 }</code></pre>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4 has-text-centered">Acknowledgments</h2>
+          <p class="has-text-centered">
+            We thank Carl Vondrick, Greg Meyer, Eric Wolff, Siddhartha Srinivasa, Hongge Chen, David Hayden, Annie Liu, Gweltaz Lever, Raghid Mardini, and Pratik Agarwal for their helpful feedback and insightful discussions.
+          </p>
         </div>
       </div>
     </div>
